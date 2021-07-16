@@ -3,37 +3,37 @@ package Clases;
 public class Coche extends Vehiculo{
 	
 //	Atributos
-	protected Rueda ruedaDelantera1;
-	
-	protected Rueda ruedaDelantera2;
-	
-	protected Rueda ruedaTrasera1;
-	
-	protected Rueda ruedaTrasera2;
+	protected Rueda[] ruedas;
 
 //	Constructor heredado de la superclase
+	
+	
 	public Coche(String matricula, String marca, String color) {
 		super(matricula, marca, color);
+		this.ruedas = new Rueda[4];
 	}
 
 	@Override
 	public void añadirRueda(String marca, double diametro, String posicion) {
-		if(posicion.equals("delantera")) {
-			this.ruedaDelantera1 = new Rueda(marca, diametro, posicion);
-			this.ruedaDelantera2 =  new Rueda(marca, diametro, posicion);
+		if(posicion.equalsIgnoreCase("delantera")) {
+			this.ruedas[0] = new Rueda(marca, diametro, posicion);
+			this.ruedas[1] =  new Rueda(marca, diametro, posicion);
 		} else {
-			this.ruedaTrasera1 =  new Rueda(marca, diametro, posicion);
-			this.ruedaTrasera2 =  new Rueda(marca, diametro, posicion);
+			this.ruedas[2] =  new Rueda(marca, diametro, posicion);
+			this.ruedas[3] =  new Rueda(marca, diametro, posicion);
 		}
 	}
 
 	@Override
 	public String toString() {
-		return "Coche\n Matricula: " + matricula + ", Marca: " + marca + ", Color: " + color + "\n"
-				+ " Rueda delantera 1 " + ruedaDelantera1 + "\n"
-				+ " Rueda delantera 2 " + ruedaDelantera1 + "\n"
-				+ " Rueda trasera 1 " + ruedaTrasera1 + "\n"
-				+ " Rueda trasera 2 " + ruedaTrasera2 + "\n";
+		return "Coche\n"
+				+ "-------------------------------\n"
+				+ " Matricula: " + matricula + "  Marca: " + marca + "  Color: " + color + "\n"
+				+ " Rueda delantera izquierda\t" + ruedas[0].toString() + "\n"
+				+ " Rueda delantera derecha\t" + ruedas[1].toString() + "\n"
+				+ " Rueda trasera izquierda\t" + ruedas[2].toString() + "\n"
+				+ " Rueda trasera derecha\t" + ruedas[3].toString() + "\n";
 	}
 
+	
 }

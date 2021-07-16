@@ -3,13 +3,28 @@ package Metodos;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
-import Clases.Coche;
+import Clases.*;
 
 public class Metodos {
 	
-	public static void crearVehiculo() {
+	public static void seleccionVehiculo() {
+		String[] botones = {"Coche", "Moto"};
+		int seleccion = JOptionPane.showOptionDialog(null, "Selecciona un vehiculo a generar", "Vehiculos", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, botones, botones[0]);
+		switch (seleccion) {
+		case 0:
+			crearVehiculo("coche");
+			break;
+			
+		case 1:
+			crearVehiculo("moto");
+			break;
+
+		}
+	}
+	
+	public static void crearVehiculo(String vehiculo) {
 //		Pedimos por pantalla matricula, marca y color y lo asignamos a variables
-		String matricula = "";
+		String matricula = "";	
 //		Bucle para controlar el formato correcto de la matrícula
 		do {
 			 matricula = JOptionPane.showInputDialog("Indica la matrícula del vehiculo");
@@ -17,10 +32,22 @@ public class Metodos {
 		
 		String marca = JOptionPane.showInputDialog("Indica la marca del vehiculo");
 		String color = JOptionPane.showInputDialog("Indica el color del vehiculo");
-		
-//		Creamos un nuevo objecto coche
-		Coche coche1 = new Coche(matricula, marca, color);
-		
+		switch (vehiculo) {
+		case "coche":
+			Coche coche = new Coche(matricula, marca, color);
+			crearRuedas(coche);
+			break;
+			
+		case "moto":
+			Moto moto = new Moto(matricula, marca, color);
+			crearRuedas(moto);
+			break;
+		}
+			
+	}
+
+	
+	private static void crearRuedas(Vehiculo vehiculo) {
 //		Pedimos por pantalla los datos de las ruedas delanteras y traseras y las añadimos al objeto coche
 		String marcaRueda = JOptionPane.showInputDialog("Indica la marca de las ruedas delanteras");
 		double diametro = 0;
@@ -28,15 +55,15 @@ public class Metodos {
 			diametro = Double.parseDouble(JOptionPane.showInputDialog("Indica el diametro de las ruedas delanteras"));
 		} while (!rangoDiametro(diametro));
 		
-		coche1.añadirRueda(marcaRueda, diametro, "delantera");
+		vehiculo.añadirRueda(marcaRueda, diametro, "delantera");
 		
 		marcaRueda = JOptionPane.showInputDialog("Indica la marca de las ruedas traseras");
 		do {
 			diametro = Double.parseDouble(JOptionPane.showInputDialog("Indica el diametro de las ruedas traseras"));
 		} while (!rangoDiametro(diametro));
-		coche1.añadirRueda(marcaRueda, diametro, "trasera");
+		vehiculo.añadirRueda(marcaRueda, diametro, "trasera");
 //		Output de los datos del objeto coche
-		JOptionPane.showMessageDialog(null, new JTextArea(coche1.toString()));
+		JOptionPane.showMessageDialog(null, new JTextArea(vehiculo.toString()));
 	}
 	
 //	Método para controlar el formato de la matrícula
