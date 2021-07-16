@@ -17,7 +17,7 @@ public class Coche extends Vehiculo{
 	}
 
 	@Override
-	public void añadirRueda(String marca, String diametro, String posicion) {
+	public void añadirRueda(String marca, double diametro, String posicion) {
 		if(posicion.equals("delantera")) {
 			this.ruedaDelantera1 = new Rueda(marca, diametro, posicion);
 			this.ruedaDelantera2 =  new Rueda(marca, diametro, posicion);

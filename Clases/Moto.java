@@ -12,7 +12,7 @@ public class Moto extends Vehiculo{
 	}
 
 	@Override
-	public void añadirRueda(String marca, String diametro, String posicion) {
+	public void añadirRueda(String marca, double diametro, String posicion) {
 			this.ruedaDelantera =  new Rueda(marca, diametro, posicion);
 			this.ruedaTrasera =  new Rueda(marca, diametro, posicion);
 	}

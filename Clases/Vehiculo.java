@@ -14,7 +14,7 @@ public abstract class Vehiculo {
 		this.color = color;
 	}
 	
-	public abstract void añadirRueda(String marca, String diametro, String posicion);
+	public abstract void añadirRueda(String marca, double diametro, String posicion);
 
 	public String getMatricula() {
 		return matricula;

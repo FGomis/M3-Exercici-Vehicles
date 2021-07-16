@@ -5,11 +5,11 @@ public class Rueda {
 	//Atributos
 	protected String marca;
 	
-	protected String diametro;
+	protected double diametro;
 	
 	protected String posicion;
 
-	public Rueda(String marca, String diametro, String posicion) {
+	public Rueda(String marca, double diametro, String posicion) {
 		this.marca = marca;
 		this.diametro = diametro;
 		this.posicion = posicion;
@@ -23,11 +23,11 @@ public class Rueda {
 		this.marca = marca;
 	}
 
-	public String getDiametro() {
+	public double getDiametro() {
 		return diametro;
 	}
 
-	public void setDiametro(String diametro) {
+	public void setDiametro(double diametro) {
 		this.diametro = diametro;
 	}
 
