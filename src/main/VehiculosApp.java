@@ -10,6 +10,9 @@ public class VehiculosApp {
 		
 		InterfaceUser interfaceUser = new InterfaceUser();
 		
+		
+		//System.out.println(interfaceUser.isMatchMatricula("23fdf45"));
+		
 		interfaceUser.crearCoche();
 
 	}

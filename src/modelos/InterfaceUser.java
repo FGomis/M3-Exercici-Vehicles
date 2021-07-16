@@ -86,8 +86,13 @@ public class InterfaceUser {
 		String[] datosVehiculo = new String[3];
 
 		// pedimos al usuario la matrícula de coche,
-		this.pedirMatricula(tipoVehiculo);
-		datosVehiculo[0] = this.getValorTeclado();
+		//y hacemos su comprobación que es correcta:
+		//o sea tiene 4 números y 2/3 letras,
+		do {
+			this.pedirMatricula(tipoVehiculo);
+			datosVehiculo[0] = this.getValorTeclado();
+		} while (!isMatchMatricula(datosVehiculo[0]));
+		
 
 		// pedimos al usuario la marca de coche,
 		this.pedirMarca(tipoVehiculo);
@@ -100,6 +105,7 @@ public class InterfaceUser {
 		return datosVehiculo;
 	}
 
+	//comprobación de matrícula,
 	private boolean isMatchMatricula(String matricula) {
 		
 		String pattern = "(\\d{4}[a-zA-Z]{2,3})";
