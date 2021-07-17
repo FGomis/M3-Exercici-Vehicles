@@ -1,6 +1,6 @@
 package main;
 
-import modelos.InterfaceUser;
+import modelos.User;
 
 public class VehiculosApp {
 
@@ -8,12 +8,9 @@ public class VehiculosApp {
 		
 		// declaración de las variables,
 		
-		InterfaceUser interfaceUser = new InterfaceUser();
+		User user = new User();
 		
-		
-		//System.out.println(interfaceUser.isMatchMatricula("23fdf45"));
-		
-		interfaceUser.crearCoche();
+		user.vehiculo();
 
 	}
 
