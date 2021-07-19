@@ -34,7 +34,15 @@ public class Licencia {
 	}
 	
 	
-	
+	public boolean equals(Licencia obj) {
+		
+		if (obj.nombreCompleto.equals(this.nombreCompleto) ) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
 	
 	
 

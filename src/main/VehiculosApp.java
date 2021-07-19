@@ -10,7 +10,7 @@ public class VehiculosApp {
 		
 		User user = new User();
 		
-		user.vehiculo();
+		user.titular();
 
 	}
 
