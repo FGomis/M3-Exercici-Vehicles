@@ -9,6 +9,7 @@ public class Moto extends Vehiculo {
 	// constructores,
 	public Moto() {
 		super();
+		this.ruedas = new Rueda[2];
 	}
 
 	// con todos atributos,

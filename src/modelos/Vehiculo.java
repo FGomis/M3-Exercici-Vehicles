@@ -26,6 +26,7 @@ abstract class Vehiculo {
 		this.matricula = matricula;
 		this.marca = marca;
 		this.color = color;
+		this.ruedas = new Rueda[1];
 	}
 
 	// métodos,
