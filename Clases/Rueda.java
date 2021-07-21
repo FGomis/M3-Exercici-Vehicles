@@ -2,7 +2,7 @@ package Clases;
 
 public class Rueda {
 	
-	//Atributos
+//	Atributos
 	protected String marca;
 	
 	protected double diametro;

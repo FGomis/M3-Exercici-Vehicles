@@ -6,8 +6,8 @@ public class M3ExerciciVehiclesApp {
 
 	public static void main(String[] args) {
 		
-		Metodos.seleccionVehiculo();
-		
+		Metodos metodos = new Metodos();
+		metodos.menuInicial();
 	}
 
 }
