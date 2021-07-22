@@ -1,9 +1,10 @@
-package modelos;
+package modelsVehiculo;
 
 public class Moto extends Vehiculo {
 
 	// atributos,
 	//protected Rueda ruedas[] = new Rueda[2];
+	final protected String TIPOLICENCIA = "A";
 
 	
 	// constructores,
@@ -33,13 +34,6 @@ public class Moto extends Vehiculo {
 
 			this.ruedas[1] = ruedaTrasera1;
 
-		}
-	}
-
-	// método para mostrar datos de ruedas,
-	public void showRuedas() {
-		for (int i = 0; i < ruedas.length; i++) {
-			System.out.println(ruedas[i]);
 		}
 	}
 

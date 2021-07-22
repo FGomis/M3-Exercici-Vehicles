@@ -1,8 +1,9 @@
-package modelos;
+package modelsVehiculo;
 
 public class Coche extends Vehiculo {
 
 	// atributos,
+	final protected String TIPOLICENCIA = "B";
 
 	// constructores,
 	// por defecto,
@@ -34,13 +35,7 @@ public class Coche extends Vehiculo {
 		}
 	}
 
-	// método para mostrar datos de ruedas,
-	public void showRuedas() {
-		for (int i = 0; i < ruedas.length; i++) {
-			System.out.println(ruedas[i]);
-		}
-	}
-
+	
 	@Override
 	public String toString() {
 		return "Coche [matricula=" + matricula + ", marca=" + marca + ", color=" + color + "]";

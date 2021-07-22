@@ -1,8 +1,8 @@
-package modelos;
+package modelsVehiculo;
 
 import java.util.Scanner;
 
-abstract class Vehiculo {
+public abstract class Vehiculo {
 
 	static Scanner teclado = new Scanner(System.in);
 	// atributos,
@@ -34,8 +34,13 @@ abstract class Vehiculo {
 	//para añadir ruedas,
 	abstract void addRuedas(String tipoRueda, String marca, double diametro);
 	
+
 	//para mostrar datos de ruedas,
-	abstract void showRuedas();
+	public void showRuedas() {
+		for (int i = 0; i < ruedas.length; i++) {
+			System.out.println(ruedas[i].toString());
+		}
+	}
 
 	@Override
 	public String toString() {

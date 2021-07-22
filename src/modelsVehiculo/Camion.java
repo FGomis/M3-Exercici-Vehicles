@@ -1,8 +1,9 @@
-package modelos;
+package modelsVehiculo;
 
 public class Camion extends Vehiculo {
 
 	// atributos,
+	final protected String TIPOLICENCIA = "C";
 
 	// constructores,
 	// por defecto,
@@ -39,13 +40,6 @@ public class Camion extends Vehiculo {
 			this.ruedas[5] = ruedaTrasera2;
 			this.ruedas[6] = ruedaTrasera3;
 			this.ruedas[7] = ruedaTrasera4;
-		}
-	}
-
-	// método para mostrar datos de ruedas,
-	public void showRuedas() {
-		for (int i = 0; i < ruedas.length; i++) {
-			System.out.println(ruedas[i]);
 		}
 	}
 

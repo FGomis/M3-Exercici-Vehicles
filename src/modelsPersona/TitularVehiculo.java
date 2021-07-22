@@ -1,4 +1,4 @@
-package modelos;
+package modelsPersona;
 
 public class TitularVehiculo extends Persona {
 
@@ -28,6 +28,10 @@ public class TitularVehiculo extends Persona {
 		this.license = license;
 		this.hasSeguro = hasSeguro;
 		this.hasGaraje = hasGaraje;
+	}
+	
+	public Licencia getLicense() {
+		return this.license;
 	}
 
 	@Override

@@ -1,16 +1,16 @@
 package main;
 
-import modelos.User;
+import modelsVehiculo.Taller;
 
-public class VehiculosApp {
+public class TallerApp {
 
 	public static void main(String[] args) {
 		
 		// declaración de las variables,
 		
-		User user = new User();
+		Taller taller = new Taller();
 		
-		user.titular();
+		taller.runTaller();
 
 	}
 

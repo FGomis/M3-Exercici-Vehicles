@@ -1,4 +1,4 @@
-package modelos;
+package modelsPersona;
 
 public class Conductor extends Persona {
 
@@ -19,11 +19,15 @@ public class Conductor extends Persona {
 		super(name, surname, dateOfBirth);
 		this.license = license;
 	}
+	
+	public Licencia getLicense() {
+		return this.license;
+	}
+
 
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "Conductor: " + super.toString() + "license=" + this.license.toString();
-	}
-
+	}			
 }

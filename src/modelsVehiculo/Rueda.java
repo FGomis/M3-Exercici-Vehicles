@@ -1,4 +1,4 @@
-package modelos;
+package modelsVehiculo;
 
 public class Rueda {
 
@@ -18,7 +18,7 @@ public class Rueda {
 
 	@Override
 	public String toString() {
-		return "Rueda [tipoRueda=" + tipoRueda + ", marca=" + marca + ", diametro=" + diametro + "]";
+		return "Rueda: " + tipoRueda + ", marca=" + marca + ", diametro=" + diametro;
 	}
 
 	// métodos para pedir datos sobre ruedas,
