@@ -29,15 +29,21 @@ public class TitularVehiculo extends Persona {
 		this.hasSeguro = hasSeguro;
 		this.hasGaraje = hasGaraje;
 	}
-	
+
 	public Licencia getLicense() {
 		return this.license;
 	}
 
 	@Override
 	public String toString() {
-		String garaje = "";
 		String seguro = "";
+		String garaje = "";
+
+		if (hasSeguro) {
+			seguro = ", tiene seguro";
+		} else {
+			seguro = ", no tiene seguro";
+		}
 
 		if (hasGaraje) {
 			garaje = ", tiene garaje";
@@ -45,14 +51,15 @@ public class TitularVehiculo extends Persona {
 			garaje = ", no tiene garaje";
 		}
 
-		if (hasSeguro) {
-			garaje = ", tiene seguro";
-		} else {
-			garaje = ", no tiene seguro";
-		}
-
-		// TODO Auto-generated method stub
-		return "Titular de vehículo: " + super.toString() + "license=" + this.license.toString() + seguro + garaje;
+		
+		return "Titular de vehículo: " + super.toString() + ", tiene " + this.license.toString() + seguro + garaje;
+	}
+	
+	//para el menu donde asignas titulares a un vehículo,
+	//para que no se muestra toda la información,
+	
+	public String datosMin() {
+		return "Titular de vehículo: " + super.toString();
 	}
 
 }

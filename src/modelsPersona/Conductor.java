@@ -27,7 +27,13 @@ public class Conductor extends Persona {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return "Conductor: " + super.toString() + "license=" + this.license.toString();
+		
+		return "Conductor: " + super.toString() + ", " + this.license.toString();
 	}			
+	
+	//para el menu donde asignas conductores a un vehículo,
+	//para que no se muestra toda la información
+	public String datosMin() {
+		return "Conductor: " + super.toString();
+	}
 }

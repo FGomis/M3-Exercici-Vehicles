@@ -1,5 +1,7 @@
 package modelsVehiculo;
 
+import javax.swing.JOptionPane;
+
 public class Rueda {
 
 	// atributos,
@@ -18,20 +20,19 @@ public class Rueda {
 
 	@Override
 	public String toString() {
-		return "Rueda: " + tipoRueda + ", marca=" + marca + ", diametro=" + diametro;
+		return tipoRueda + ": marca=" + marca + ", diametro=" + diametro;
 	}
 
 	// métodos para pedir datos sobre ruedas,
 	// método para pedir la marca de ruedas,
-	protected static void pedirMarcaRueda(String tipoRuedas) {
-		System.out.println("");
-		System.out.println("***********************************");
-		System.out.println("RUEDAS " + tipoRuedas + ". Introduce su marca.");
+	protected static String pedirMarcaRueda(String tipoRuedas) {
+	
+		return JOptionPane.showInputDialog("Introduce la marca de rueda "  + tipoRuedas );
 	}
 
 	// método para pedir el diametro de ruedas,
-	protected static void pedirDiametroRueda(String tipoRuedas) {
-		System.out.println("RUEDAS " + tipoRuedas + ". Introduce su diametro. ");
+	protected static String pedirDiametroRueda(String tipoRuedas) {
+		return JOptionPane.showInputDialog("Introduce el diametro de rueda "+ tipoRuedas);
 	}
 
 	// método para controlar el diámetro de ruedas,

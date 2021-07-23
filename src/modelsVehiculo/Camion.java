@@ -22,7 +22,7 @@ public class Camion extends Vehiculo {
 	@Override
 	public void addRuedas(String tipoRueda, String marca, double diametro) {
 
-		if (tipoRueda.equalsIgnoreCase("DELANTERAS")) {
+		if (tipoRueda.equalsIgnoreCase("delantera")) {
 			Rueda ruedaDelantera1 = new Rueda(tipoRueda, marca, diametro);
 			Rueda ruedaDelantera2 = new Rueda(tipoRueda, marca, diametro);
 			Rueda ruedaDelantera3 = new Rueda(tipoRueda, marca, diametro);
@@ -45,7 +45,11 @@ public class Camion extends Vehiculo {
 
 	@Override
 	public String toString() {
-		return "Camion [matricula=" + matricula + ", marca=" + marca + ", color=" + color + "]";
+		return "Camion " + super.toString();
+	}
+	
+	public String datosMin() {
+		return "Camion " + super.datosMin();
 	}
 
 }

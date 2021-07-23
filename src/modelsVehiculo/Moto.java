@@ -24,7 +24,7 @@ public class Moto extends Vehiculo {
 	@Override
 	public void addRuedas(String tipoRueda, String marca, double diametro) {
 
-		if (tipoRueda.equalsIgnoreCase("DELANTERAS")) {
+		if (tipoRueda.equalsIgnoreCase("delantera")) {
 			Rueda ruedaDelantera1 = new Rueda(tipoRueda, marca, diametro);
 
 			this.ruedas[0] = ruedaDelantera1;
@@ -39,7 +39,10 @@ public class Moto extends Vehiculo {
 
 	@Override
 	public String toString() {
-		return "Moto [matricula=" + matricula + ", marca=" + marca + ", color=" + color + "]";
+		return "Moto " + super.toString();
 	}
 
+	public String datosMin() {
+		return "Moto " + super.datosMin();
+	}
 }

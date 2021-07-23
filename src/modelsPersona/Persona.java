@@ -1,5 +1,7 @@
 package modelsPersona;
 
+import javax.swing.JOptionPane;
+
 public class Persona {
 
 	// atributos,
@@ -52,20 +54,29 @@ public class Persona {
 
 	@Override
 	public String toString() {
-		return " [nombre=" + this.name + "apellidos=" + this.surname + ", fecha de nacimiento=" + this.dateOfBirth
-				+ "]";
+		return this.name + " " + this.surname + ", nacido en " + this.dateOfBirth;
 	}
 	
-/*	public static void pedirNombre() {
-		System.out.println("Diga nombre  ");
+	public String datosMin() {
+		return this.toString();
 	}
 	
-	public static void pedirApellidos() {
-		System.out.println("Diga apellidos  ");
+	public static String pedirNombre() {
+		
+		return JOptionPane.showInputDialog(
+				"Escribe el nombre ");
 	}
 	
-	public static void pedirFechaNacimiento() {
-		System.out.println("Diga la fecha de nacimiento ");
-	}*/
+	public static String pedirApellidos() {
+	
+		return JOptionPane.showInputDialog(
+				"Escribe el apellidos ");
+	}
+	
+	public static String pedirFechaNacimiento() {
+	
+		return JOptionPane.showInputDialog(
+				"Escribe el fecha de nacimiento ");
+	}
 
 }

@@ -41,20 +41,7 @@ public class Licencia {
 
 	@Override
 	public String toString() {
-		return "Licencia [id=" + this.id + ", tipoOfLicencia=" + this.tipoDeLicencia + ", nombreCompleto="
+		return "Licencia [id=" + this.id + ", tipo de Licencia=" + this.tipoDeLicencia + ", "
 				+ this.nombreCompleto + ", fechaCaducidad=" + this.fechaCaducidad + "]";
 	}
-
-/*	// pide color de vehículo,
-	public static void pedirTipoLicencia() {
-		System.out.println("Diga tipo de licencia");
-	}
-
-	public static void pedirNombreCompleto() {
-		System.out.println("Diga nombre completo de licencia");
-	}
-
-	public static void pedirFechaCaducidad() {
-		System.out.println("Diga fecha de caducidad");
-	}*/
 }
