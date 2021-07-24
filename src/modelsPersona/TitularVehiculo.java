@@ -55,11 +55,10 @@ public class TitularVehiculo extends Persona {
 		return "Titular de vehículo: " + super.toString() + ", tiene " + this.license.toString() + seguro + garaje;
 	}
 	
-	//para el menu donde asignas titulares a un vehículo,
-	//para que no se muestra toda la información,
+	//para mostrar información corta sobre titular,
 	
 	public String datosMin() {
-		return "Titular de vehículo: " + super.toString();
+		return "Titular de vehículo: " + super.toString() + ", tipo de licencia " + this.license.getTipoDeLicencia();
 	}
 
 }

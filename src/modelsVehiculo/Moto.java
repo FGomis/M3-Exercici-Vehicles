@@ -11,12 +11,14 @@ public class Moto extends Vehiculo {
 	public Moto() {
 		super();
 		this.ruedas = new Rueda[2];
+		this.tipoLicencia = this.TIPOLICENCIA;
 	}
 
 	// con todos atributos,
 	public Moto(String matricula, String marca, String color) {
 		super(matricula, marca, color);
 		this.ruedas = new Rueda[2];
+		this.tipoLicencia = this.TIPOLICENCIA;
 	}
 
 	// métodos,

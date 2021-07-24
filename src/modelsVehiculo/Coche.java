@@ -10,12 +10,14 @@ public class Coche extends Vehiculo {
 	public Coche() {
 		super();
 		this.ruedas = new Rueda[4];
+		this.tipoLicencia = this.TIPOLICENCIA;
 	}
 
 	// con todos atributos,
 	public Coche(String matricula, String marca, String color) {
 		super(matricula, marca, color);
 		this.ruedas = new Rueda[4];
+		this.tipoLicencia = this.TIPOLICENCIA;
 	}
 
 	//para añadir ruedas,

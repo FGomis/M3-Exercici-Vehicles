@@ -45,13 +45,7 @@ public class Taller {
 				this.runMenu(optionMenu);
 				optionMenu = showMenuPrincipal();
 			}
-		} catch (IndexOutOfBoundsException e) {
-			System.out.println("Message: " + e.getMessage() + "\n");
-			System.out.println("File: " + e.getClass() + "\n");
-			System.out.println("Line: " + e.getStackTrace() + "\n");
-			System.out.println("Localized message: " + e.getLocalizedMessage() + "\n");
-			System.out.println("Cause: " + e.getCause() + "\n");
-		}
+		} 
 
 		catch (Exception e) {
 			System.out.println("Message: " + e.getMessage() + "\n");
@@ -136,7 +130,6 @@ public class Taller {
 		Persona conductor;
 		TitularVehiculo titular = null;
 		
-
 		// guardamos vehículo a lo cual asignarémos personas,
 		vehiculoAsignar = this.vehiculos.get(Integer.parseInt(numVehiculoaAsignar) - 1);
 
@@ -151,17 +144,18 @@ public class Taller {
 		//mostramos datos de todos titulaes para que se pueda elegir uno,
 			numPersona = Integer.parseInt(elegirPersona(this.personas, optionTitularConductor)) - 1; //?????
 		
-			//buscamos entre personas
+			//buscamos entre personas 
 			for (Persona persona : this.personas) {
 				if (persona instanceof TitularVehiculo) {
 					titular = (TitularVehiculo) this.personas.get(numPersona);
 				}
 			}
 
+			//añadimos perosna como titular de vehículo,
 			try {
 				vehiculoAsignar.setTitular(titular);
 			} catch (Throwable e) {
-				JOptionPane.showMessageDialog(null, "Titular no tiene licencia correcta");
+				JOptionPane.showMessageDialog(null, "Licencia de Titular no corresponde al tipo de vehículo");
 				e.printStackTrace();
 			}
 
@@ -173,7 +167,7 @@ public class Taller {
 			
 			//con el índice de la persona la buscamos en el array de personas,
 			conductor = this.personas.get(numPersona);
-			
+						
 			//añadimos conductor en la lista de conductores,
 			vehiculoAsignar.addConductor(conductor);
 			
@@ -228,7 +222,7 @@ public class Taller {
 		String nombre = Persona.pedirNombre();
 		String apellidos = Persona.pedirApellidos();
 		String fechaNacimiento = Persona.pedirFechaNacimiento();
-		// Licencia licencia = Taller.setLicencia();
+	
 		int tieneSeguro;
 		int tieneGaraje;
 
@@ -266,7 +260,7 @@ public class Taller {
 	private static String showMenuPrincipal() {
 
 		return JOptionPane.showInputDialog(
-				"Elige una de las opciones: " + "\n1. Crear Persona" + "\n2. Crear vehículo" + "\n3. Mostrar personas"
+				"Elige una de las opciones: " + "\n1. Crear Persona" + "\n2. Crear Vehículo" + "\n3. Mostrar personas"
 						+ "\n4. Mostrar vehículos" + "\n5. Asignar personas a vehículos" + "\n0. Acadar el programa");
 	}
 
@@ -291,7 +285,7 @@ public class Taller {
 				"Asignar al vehículo: " + "\n1. Titular" + "\n2. Conductor" + "\n0. Salir al menu principal");
 	}
 
-	// para mostrar titulares y conductores de vehículos,
+	// para mostrar titulares y conductores de vehículos para poder elegirlos,
 	private static String elegirPersona(ArrayList<Persona> personas, String optionAsignarPersona) {
 		String datosPersonas = "";
 		int contador;
@@ -388,31 +382,7 @@ public class Taller {
 		} else {
 			JOptionPane.showMessageDialog(null, "Todavía no has creado ningún vehículo");
 		}
-	}
-	
-	
-	// para convertir número de tipo de vehículo,
-		// a tipo de licencia que le corresponde,
-		private String getTipoLicence(String tipoVehiculo) {
-			String tipoLicence = "";
-
-			switch (tipoVehiculo) {
-			case "1":
-				tipoLicence = "B";
-				break;
-			case "2":
-				tipoLicence = "A";
-				break;
-			case "3":
-				tipoLicence = "C";
-				break;
-
-			default:
-				break;
-			}
-			return tipoLicence;
-		}
-
+	}	
 	
 	// método que pide datos sobre ruedas, hace comprobación del
 		// diámetro y las añade,

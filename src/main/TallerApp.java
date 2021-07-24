@@ -9,7 +9,8 @@ public class TallerApp {
 		// declaración de las variables,
 		
 		Taller taller = new Taller();
-					
+		
+		//inicializo un taller,
 		taller.startTaller();
 
 	}

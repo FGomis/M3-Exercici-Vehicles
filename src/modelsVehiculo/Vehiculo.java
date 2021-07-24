@@ -19,7 +19,7 @@ public abstract class Vehiculo {
 	protected ArrayList<Persona> conductores = new ArrayList<Persona>();
 	protected String tipoLicencia;
 	
-	final protected String TIPOLICENCIA = "A";
+	final protected String TIPOLICENCIA = "";
 
 	// constructores,
 	// por defecto,
@@ -27,7 +27,8 @@ public abstract class Vehiculo {
 		this.matricula = "";
 		this.marca = "";
 		this.color = "";
-		this.ruedas = new Rueda[1];
+		this.ruedas = new Rueda[1];	
+		this.tipoLicencia = this.TIPOLICENCIA;
 	}
 
 	// constructor con valores,
@@ -37,6 +38,7 @@ public abstract class Vehiculo {
 		this.marca = marca;
 		this.color = color;
 		this.ruedas = new Rueda[1];
+		this.tipoLicencia = this.TIPOLICENCIA;
 	}
 
 	// métodos,
@@ -44,65 +46,85 @@ public abstract class Vehiculo {
 	// para añadir ruedas,
 	abstract void addRuedas(String tipoRueda, String marca, double diametro);
 
-	// para mostrar datos de ruedas,
-	public String ruedasToString() {
-		
-		String ruedasDatos = " ";
-		
-		ruedasDatos += this.ruedas[0].toString() 
-				+ "\n" + this.ruedas[this.ruedas.length -1].toString();
-		return ruedasDatos;
-	}
-
 	// para añadir titular al vehículo,
 	protected void setTitular(TitularVehiculo titular) throws Throwable  {
 				
-		if (titular.getLicense().getTipoDeLicencia().equalsIgnoreCase(this.TIPOLICENCIA)) {
+		if (titular.getLicense().getTipoDeLicencia().equalsIgnoreCase(this.tipoLicencia)) {
 			this.titular = titular;
+			
+			JOptionPane.showMessageDialog(null, "Ha sido añadido un titular nuevo correctamente. \n"  
+			+ this.datosMin() + " " + this.titular.toString());
 		} else {
 			throw new Exception();
-		}
-				
+		}				
 	}
 
-	// método que permite añadir conductores al vehículo,
+	// método que permite añadir un conductor al vehículo,
 	protected void addConductor(Persona conductor) {
 		
-		System.out.println("this.TIPOLICENCIA " + this.TIPOLICENCIA);
+		//para poder acceder a licencia de conductor comprobar si Persona es instancia,
+		//de clase Titular de coche,
 		if (conductor instanceof TitularVehiculo)  {
 			
-			if(((TitularVehiculo) conductor).getLicense().getTipoDeLicencia().equalsIgnoreCase(this.TIPOLICENCIA)){
+			//si licencia de titular coincide con el tipo de licencia que requiere vehiculo,
+			//añadimos titular de vehículo como uno de los conductores,
+			if(((TitularVehiculo) conductor).getLicense().getTipoDeLicencia().equalsIgnoreCase(this.tipoLicencia)){
 				
 				this.conductores.add(conductor);
 				
-				JOptionPane.showMessageDialog(null, "Ha sido añadido un conductor nuevo correctamente");
+				JOptionPane.showMessageDialog(null, "Ha sido añadido el titular de vehículo como un conductor nuevo. \n"
+						+ this.datosMin() + " " + this.showConductores());
 			}else {
-				JOptionPane.showMessageDialog(null, "Titular no tiene licencia correcta");
+				JOptionPane.showMessageDialog(null, "Titular no tiene licencia correcta para conducir vehículo");
 			}
 		}
 		
+		//o es instancia de clase Conductor,
 		else if (conductor instanceof Conductor) {
-			System.out.println("this.TIPOLICENCIA2 " + this.TIPOLICENCIA);
-			if(((Conductor) conductor).getLicense().getTipoDeLicencia().equalsIgnoreCase(this.TIPOLICENCIA)){
-				
-				
+			
+			//si licencia de conductor coincide con el tipo de licencia que requiere vehiculo,
+			//añadimoslo como uno de los conductores,
+			if(((Conductor) conductor).getLicense().getTipoDeLicencia().equalsIgnoreCase(this.tipoLicencia)){
+								
 				this.conductores.add(conductor);
-				JOptionPane.showMessageDialog(null, "Ha sido añadido un conductor nuevo correctamente 1");
+				JOptionPane.showMessageDialog(null, "Ha sido añadido un conductor nuevo. \n"
+						+ this.datosMin() + "\n" + this.showConductores());
 			}else {
 				JOptionPane.showMessageDialog(null, "Conductor no tiene licencia correcta");
 			}
 		}
-
 	}
 
+	//métodos para mostrar información sobre vehículo,
 	@Override
 	public String toString() {
 		return "matricula=" + matricula + ", marca=" + marca + ", color=" + color + ", ruedas: "  + ruedasToString();
 	}
 	
 	public String datosMin() {
-		return "matricula=" + matricula + ", marca=" + marca + ", color=" + color;
+		return "matricula=" + matricula + ", marca=" + marca + ", color=" + color + ", requiere licencia tipo " + this.tipoLicencia;
 	}
+	
+	//para mostrar lista de conductores,
+	public String showConductores() {
+		
+		String listaConductores = "Conductores: ";
+		for (int i = 0; i < conductores.size(); i++) {
+			listaConductores += "\n"+ conductores.get(i).toString();
+		}
+		
+		return listaConductores;
+	}
+	
+	// para mostrar datos de ruedas,
+		public String ruedasToString() {
+			
+			String ruedasDatos = " ";
+			
+			ruedasDatos += this.ruedas[0].toString() 
+					+ "\n" + this.ruedas[this.ruedas.length -1].toString();
+			return ruedasDatos;
+		}
 
 	// métodos para pedir datos sobre vehículo,
 
@@ -131,7 +153,7 @@ public abstract class Vehiculo {
 
 	// pide matrícula de vehículo,
 	private static String pedirMatricula(String tipoVehiculo) {
-		return JOptionPane.showInputDialog("Introduce la matrícula de su " + tipoVehiculo);
+		return JOptionPane.showInputDialog("Introduce la matrícula de " + tipoVehiculo);
 	}
 
 	// pide marca de vehículo,
@@ -141,7 +163,7 @@ public abstract class Vehiculo {
 
 	// pide color de vehículo,
 	private static String pedirColor(String tipoVehiculo) {
-		return JOptionPane.showInputDialog("Introduce el color de su " + tipoVehiculo);
+		return JOptionPane.showInputDialog("Introduce el color de " + tipoVehiculo);
 
 	}
 

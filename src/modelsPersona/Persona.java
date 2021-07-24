@@ -61,6 +61,7 @@ public class Persona {
 		return this.toString();
 	}
 	
+	//métodos para pedir información sobre persona,
 	public static String pedirNombre() {
 		
 		return JOptionPane.showInputDialog(

@@ -34,6 +34,6 @@ public class Conductor extends Persona {
 	//para el menu donde asignas conductores a un vehículo,
 	//para que no se muestra toda la información
 	public String datosMin() {
-		return "Conductor: " + super.toString();
+		return "Conductor: " + super.toString()+ ", tipo de licencia " + this.license.getTipoDeLicencia();
 	}
 }
